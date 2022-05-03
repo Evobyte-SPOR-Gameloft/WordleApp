@@ -3,7 +3,13 @@
 
 string[] fiveLetterWords = File.ReadAllLines("dictionary.txt");
 
-foreach (string word in fiveLetterWords)
+string GenerateRandomWord()
 {
-    Console.WriteLine(word);
+    Random randomWordGenerator = new Random();
+    return fiveLetterWords[randomWordGenerator.Next(0, 2500)];
 }
+
+Console.WriteLine(GenerateRandomWord());
+
+
+
