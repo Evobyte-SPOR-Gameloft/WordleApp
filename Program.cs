@@ -1,15 +1,31 @@
 ﻿
-//string[] fiveLetterWords = File.ReadAllLines("C:\_CodingVS\WordleApp\dictionary.txt");
-
 string[] fiveLetterWords = File.ReadAllLines("dictionary.txt");
 
 string GenerateRandomWord()
+            {
+                Random randomWordGenerator = new Random();
+                return fiveLetterWords[randomWordGenerator.Next(0, 2500)];
+            }
+string chosenWord = GenerateRandomWord();
+//char[] chosenWordAsCharArray = chosenWord.ToCharArray();
+
+string guessedWord;
+
+//Console.WriteLine(chosenWord);
+
+Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+Console.WriteLine("Guess the five letter word!");
+
+guessedWord = Console.ReadLine();
+
+WordleApp.UtilityClass.LetterStateByIndex[] result = WordleApp.UtilityClass.LetterCheck(chosenWord, guessedWord);
+
+for(int i = 0; i < 5; i++)
 {
-    Random randomWordGenerator = new Random();
-    return fiveLetterWords[randomWordGenerator.Next(0, 2500)];
+    Console.Write($"The letter No. {i + 1} is: ");
+    Console.WriteLine(result[i]);
 }
 
-Console.WriteLine(GenerateRandomWord());
 
-
-
+Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
