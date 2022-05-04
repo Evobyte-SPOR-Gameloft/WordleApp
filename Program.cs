@@ -1,6 +1,8 @@
 ﻿
+//Reads a .txt file then adds each line as a string in an array
 string[] fiveLetterWords = File.ReadAllLines("dictionary.txt");
 
+//Picks an index at random from the string array then returns the string
 string GenerateRandomWord()
             {
                 Random randomWordGenerator = new Random();

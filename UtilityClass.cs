@@ -16,6 +16,7 @@ namespace WordleApp
             Null                 // Empty space
         }
 
+        //Creates an array of enums to be filled with the results for each letter, then returns the array
         public static LetterStateByIndex[] LetterCheck(string chosenWord, string guessedWord)
         {
             LetterStateByIndex[] result = new LetterStateByIndex[5];
