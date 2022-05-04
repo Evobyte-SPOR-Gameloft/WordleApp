@@ -35,6 +35,9 @@ void PlayTheGame()
     Console.WriteLine("Guess the five letter word!");
     string guessedWord;
     int iterations = 0;
+
+    Console.WriteLine(chosenWord);
+
     Console.WriteLine();
     do
     {

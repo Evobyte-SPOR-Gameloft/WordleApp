@@ -48,7 +48,6 @@ namespace WordleApp
             Console.WriteLine("Q - Quit");
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
-        //Just a useful method that I found on StackOverflow
         public static void DeletePrevConsoleLine()
         {
             if (Console.CursorTop == 0) return;
