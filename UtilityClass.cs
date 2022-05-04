@@ -11,7 +11,7 @@ namespace WordleApp
         public enum LetterStateByIndex
         {
             Correct,             // The letter is at the right index
-            WrongPosition,       // The letter is at another index
+            WrongPos,            // The letter is at another index
             Missing,             // No such letter
             Null                 // Empty space
         }
@@ -29,7 +29,7 @@ namespace WordleApp
                 }
                 else if (chosenWord.Contains(guessedWord[i]))
                 {
-                    result[i] = LetterStateByIndex.WrongPosition;
+                    result[i] = LetterStateByIndex.WrongPos;
                 }
                 else
                 {

@@ -29,17 +29,37 @@ void PlayTheGame()
 {
     Random randomWordGenerator = new Random();
     string chosenWord = fiveLetterWords[randomWordGenerator.Next(0, 2500)];
-    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     Console.WriteLine("Guess the five letter word!");
     string guessedWord;
-    guessedWord = Console.ReadLine();
-    WordleApp.UtilityClass.LetterStateByIndex[] result = WordleApp.UtilityClass.LetterCheck(chosenWord, guessedWord);
-
-    for (int i = 0; i < 5; i++)
+    int iterations = 0;
+    Console.WriteLine(chosenWord);
+    do
     {
-        Console.Write($"The letter No. {i + 1} is: ");
-        Console.WriteLine(result[i]);
+        guessedWord = Console.ReadLine().ToLower();
+        if (guessedWord == chosenWord && iterations == 0) Console.WriteLine("How the f...!? You got it first try!");
+        else if(guessedWord == chosenWord && iterations != 0) Console.WriteLine("That's the correct word! Congratulations!");
+        else if (fiveLetterWords.Contains(guessedWord))
+        {
+            Console.WriteLine();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            string guessedWordUpper = guessedWord.ToUpper();
+            //for (int i = 0; i < 5; i++)
+            //{
+            //   Console.Write($"[ {guessedWordUpper[i]} ]");
+            //    Console.Write(" ");
+            //}
+            WordleApp.UtilityClass.LetterStateByIndex[] result = WordleApp.UtilityClass.LetterCheck(chosenWord, guessedWord);
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"The letter | {guessedWordUpper[i]} | is: ");
+                Console.WriteLine(result[i]);
+            }
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            iterations++;
+        }
+        else if (guessedWord.Length > 5) Console.WriteLine("Slow down, that's too many letters!");
+        else if (guessedWord.Length < 5) Console.WriteLine("We're gonna need a few more letters!");
+        else Console.WriteLine("That word is not in our dictionary!");
     }
-
-    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    while (iterations < 6 && guessedWord != chosenWord);
 }
