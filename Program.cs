@@ -12,7 +12,7 @@ do
     response = response.ToUpper();
     Console.WriteLine();
 
-    switch (char.Parse(response))
+    switch (response[0])
     {
         case 'P':
             PlayTheGame();
