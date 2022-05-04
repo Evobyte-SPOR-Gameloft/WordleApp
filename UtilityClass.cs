@@ -42,11 +42,19 @@ namespace WordleApp
 
         public static void ShowMenu()
         {
-            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             Console.WriteLine("Please enter your choice:");
             Console.WriteLine("P - Play");
             Console.WriteLine("Q - Quit");
-            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        }
+        //Just a useful method that I found on StackOverflow
+        public static void DeletePrevConsoleLine()
+        {
+            if (Console.CursorTop == 0) return;
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, Console.CursorTop);
         }
     }
 }
