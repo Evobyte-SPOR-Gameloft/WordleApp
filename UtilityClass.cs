@@ -40,5 +40,13 @@ namespace WordleApp
             return result;
         }
 
+        public static void ShowMenu()
+        {
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine("Please enter your choice:");
+            Console.WriteLine("P - Play");
+            Console.WriteLine("Q - Quit");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        }
     }
 }
