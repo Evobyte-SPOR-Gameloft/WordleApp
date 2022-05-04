@@ -31,7 +31,7 @@ void PlayTheGame()
 {
     Random randomWordGenerator = new Random();
     string chosenWord = fiveLetterWords[randomWordGenerator.Next(0, 2500)];
-    string[] guesses;
+    List<string> guesses = new List<string>();
     Console.WriteLine("Guess the five letter word!");
     string guessedWord;
     int iterations = 0;
@@ -45,7 +45,7 @@ void PlayTheGame()
         WordleApp.UtilityClass.DeletePrevConsoleLine();
         //if (guessedWord == chosenWord && iterations == 0) Console.WriteLine("How the f...!? You got it first try!");
         //else if(guessedWord == chosenWord && iterations != 0) Console.WriteLine("That's the correct word! Congratulations!");
-        if (fiveLetterWords.Contains(guessedWord))
+        if (fiveLetterWords.Contains(guessedWord) && !guesses.Contains(guessedWord))
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             string guessedWordUpper = guessedWord.ToUpper();
@@ -66,8 +66,14 @@ void PlayTheGame()
             //    Console.WriteLine(result[i]);
             //}
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
+            guesses.Add(guessedWord);
             iterations++;
+        }
+        else if (guesses.Contains(guessedWord))
+        {
+            Console.WriteLine("You've already used that word, dummy!");
+            Thread.Sleep(2000);
+            WordleApp.UtilityClass.DeletePrevConsoleLine();
         }
         else if (guessedWord.Length > 5)
         {
