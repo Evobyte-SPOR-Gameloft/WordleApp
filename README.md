@@ -1,3 +1,4 @@
+<p align="center">
 Text based Wordle Game!
-
-![SS](frontImage.png)
+  <![SS](frontImage.png)>
+</p>
