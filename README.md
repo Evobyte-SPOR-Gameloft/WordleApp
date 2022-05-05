@@ -1,4 +1,4 @@
 <p align="center">
 Text based Wordle Game!
-  <![SS](frontImage.png)>
+  <img width="825" height="683" src="https://github.com/Evobyte-SPOR-Gameloft/WordleApp/blob/master/readme.png">
 </p>
