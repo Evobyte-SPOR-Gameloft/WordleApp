@@ -10,15 +10,19 @@ namespace WordleApp
     {
         public static void ShowMenu()
         {
-            Console.WriteLine(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            Console.WriteLine("   Please enter your choice:");
+            string fancyDivider = ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            string enterChoice = ("Please enter your choice:");
+            string playMenu = ("P - Play");
+            string quitMenu = ("Q - Quit");
+            Console.WriteLine("{0," + ((Console.WindowWidth / 2) + fancyDivider.Length / 2) + "}", fancyDivider);
+            Console.WriteLine("{0," + ((Console.WindowWidth / 2) + enterChoice.Length / 2) + "}", enterChoice);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("           P - Play");
+            Console.WriteLine("{0," + ((Console.WindowWidth / 2) + playMenu.Length / 2) + "}", playMenu);
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("           Q - Quit");
+            Console.WriteLine("{0," + ((Console.WindowWidth / 2) + quitMenu.Length / 2) + "}", quitMenu);
             Console.ResetColor();
-            Console.WriteLine(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine("{0," + ((Console.WindowWidth / 2) + fancyDivider.Length / 2) + "}", fancyDivider);
         }
         public static void DeletePrevConsoleLine()
         {
