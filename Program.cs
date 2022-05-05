@@ -35,20 +35,18 @@ void PlayTheGame()
     Console.WriteLine("Guess the five letter word!");
     string guessedWord;
     int iterations = 0;
-
-    Console.WriteLine(chosenWord);
-
     Console.WriteLine();
+
     do
     {
         guessedWord = Console.ReadLine().ToLower();
         WordleApp.UtilityClass.DeletePrevConsoleLine();
-        //if (guessedWord == chosenWord && iterations == 0) Console.WriteLine("How the f...!? You got it first try!");
-        //else if(guessedWord == chosenWord && iterations != 0) Console.WriteLine("That's the correct word! Congratulations!");
+
         if (fiveLetterWords.Contains(guessedWord) && !guesses.Contains(guessedWord))
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             string guessedWordUpper = guessedWord.ToUpper();
+
             for (int i = 0; i < 5; i++)
             {
                 if (guessedWord[i] == chosenWord[i]) Console.ForegroundColor = ConsoleColor.Green;
@@ -58,13 +56,8 @@ void PlayTheGame()
                 Console.Write(" ");
                 Console.ResetColor();
             }
+
             Console.WriteLine();
-            //WordleApp.UtilityClass.LetterStateByIndex[] result = WordleApp.UtilityClass.LetterCheck(chosenWord, guessedWord);
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    Console.Write($"The letter | {guessedWordUpper[i]} | is: ");
-            //    Console.WriteLine(result[i]);
-            //}
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             guesses.Add(guessedWord);
             iterations++;
