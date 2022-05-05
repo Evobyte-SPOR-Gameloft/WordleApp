@@ -32,10 +32,12 @@ void PlayTheGame()
     Random randomWordGenerator = new Random();
     string chosenWord = fiveLetterWords[randomWordGenerator.Next(0, 2500)];
     List<string> guesses = new List<string>();
+    List<char> letters = new List<char>();
     Console.WriteLine("Guess the five letter word!");
     string guessedWord;
     int iterations = 0;
     Console.WriteLine();
+    Console.WriteLine(chosenWord);
 
     do
     {
@@ -46,15 +48,20 @@ void PlayTheGame()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             string guessedWordUpper = guessedWord.ToUpper();
+            letters.Clear();
 
             for (int i = 0; i < 5; i++)
             {
+                //Known bug: If the chosenWord has two identical letters and
+                //your guessWord has both those letters in the wrong place
+                //only one of them will be highlighted
                 if (guessedWord[i] == chosenWord[i]) Console.ForegroundColor = ConsoleColor.Green;
-                else if (chosenWord.Contains(guessedWord[i])) Console.ForegroundColor = ConsoleColor.DarkYellow;
+                else if (chosenWord.Contains(guessedWord[i]) && !letters.Contains(guessedWord[i])) Console.ForegroundColor = ConsoleColor.DarkYellow;
                 else Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.Write($"[ {guessedWordUpper[i]} ]");
                 Console.Write(" ");
                 Console.ResetColor();
+                letters.Add(guessedWord[i]);
             }
 
             Console.WriteLine();
